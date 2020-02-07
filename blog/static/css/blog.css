@@ -48,3 +48,10 @@ h1, h2, h3, h4 {
 .comment {
     margin: 20px 0px 20px 20px;
 }
+
+#logoutButton {
+    font-size: 0.6em;
+    background-color: #DB151C;
+    color: #D5CCC1;
+    margin: 10px 10px 10px 10px;
+}
