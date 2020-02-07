@@ -26,6 +26,6 @@ http://kazuhira1073.pythonanywhere.com
 - ページネーション機能
 - 単体テスト機能
 - 統合テスト機能
-- サーバをHerokuまたはAWSに移行
+- サイトをHerokuまたはAWSに移行
 - Docker
 - CI/CD
