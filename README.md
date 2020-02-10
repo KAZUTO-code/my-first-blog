@@ -10,10 +10,10 @@
 - 管理ユーザ登録機能
 - 管理ユーザログイン・ログアウト機能
 
-## 環境
-フレームワーク：Django
-データベース：PostgreSQL
-
+## 構築環境
+- WebFrameWork -> Django
+- DB -> SQLite
+- Server, Domain -> pythonanywhere.com
 ## サイトのURL
 http://kazuhira1073.pythonanywhere.com
 
