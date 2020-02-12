@@ -1,7 +1,10 @@
-{% load static %}
-<html>
+{% load i18n static %}
+<!DOCTYPE html>{% get_current_language as LANGUAGE_CODE %}
+<html lang = "{{ LANGUAGE_CODE|default:"en-us"}}">
     <head>
-        <title>My first blog</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=devide-width, initial-scale=1, shrink-to-fit=no">
+        <title>My blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href="//fonts.googleapis.com/css?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
@@ -16,7 +19,7 @@
           {% else %}
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
           {% endif %}
-            <h1><a href="/">Kazuto Hirao blog</a></h1>
+            <h1><a href="{% url 'post_list'%}">Kazuto Hirao blog</a></h1>
         </div>
         <div class="content container">
             <div class="row">

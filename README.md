@@ -15,7 +15,7 @@
 - DB -> SQLite
 - Server, Domain -> pythonanywhere.com
 ## サイトのURL
-http://kazuhira1073.pythonanywhere.com
+http://kazuhira1073.pythonanywhere.com/blog
 
 ## 今後の予定
 以下の内容を実装予定
