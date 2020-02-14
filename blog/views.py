@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
+from PIL import Image
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -19,9 +20,8 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.image = request.FILES['image']
+            post.image = request.FILES.get('image')
             post.author = request.user
-            """post.published_date = timezone.now()"""
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -35,9 +35,9 @@ def post_edit(request, pk):
         form = PostForm(request.POST,request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.image = request.FILES['image']
+            if request.FILES.get('image') :
+                post.image = request.FILES.get('image')
             post.author = request.user
-            """post.published_date = timezone.now()"""
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
