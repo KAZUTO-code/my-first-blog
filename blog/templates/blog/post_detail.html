@@ -27,19 +27,14 @@
     <tt class="publish-comments">公開コメント</tt>
     <hr>
     {% for comment in post.comments.all %}
-        {% if user.is_authenticated %}<!--or comment.approved_comment-->
         <div class="comment">
             <div class="date">
                 {{ comment.created_date }}
-                <!--{% if not comment.approved_comment %}-->
-                    <a class="btn icon" href="{% url 'comment_remove' pk=comment.pk %}"><i class="fas fa-trash-alt"></i></a>
-                    <!--<a class="btn icon" href="{% url 'comment_approve' pk=comment.pk %}"><i class="far fa-thumbs-up"></i></a>-->
-                <!--{% endif %}-->
+                <a class="btn icon" href="{% url 'comment_remove' pk=comment.pk %}"><i class="fas fa-trash-alt"></i></a>
             </div>
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks|urlize }}</p>
         </div>
-        {% endif %}
     {% empty %}
         <p>No comments yet</p>
     {% endfor %}
