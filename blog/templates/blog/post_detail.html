@@ -11,8 +11,8 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-           <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-           <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+           <a class="btn icon" href="{% url 'post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+           <a class="btn icon" href="{% url 'post_remove' pk=post.pk %}"><i class="fas fa-trash-alt"></i></a>
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr|urlize }}</p>
@@ -23,22 +23,24 @@
         {% endif %}
     </div>
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    <a class="btn btn-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    <tt class="publish-comments">公開コメント</tt>
+    <hr>
     {% for comment in post.comments.all %}
-        {% if user.is_authenticated or comment.approved_comment %}
+        {% if user.is_authenticated %}<!--or comment.approved_comment-->
         <div class="comment">
             <div class="date">
                 {{ comment.created_date }}
-                {% if not comment.approved_comment %}
-                    <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
-                {% endif %}
+                <!--{% if not comment.approved_comment %}-->
+                    <a class="btn icon" href="{% url 'comment_remove' pk=comment.pk %}"><i class="fas fa-trash-alt"></i></a>
+                    <!--<a class="btn icon" href="{% url 'comment_approve' pk=comment.pk %}"><i class="far fa-thumbs-up"></i></a>-->
+                <!--{% endif %}-->
             </div>
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks|urlize }}</p>
         </div>
         {% endif %}
     {% empty %}
-        <p>No comments here yet :(</p>
+        <p>No comments yet</p>
     {% endfor %}
 {% endblock %}
