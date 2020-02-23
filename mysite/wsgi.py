@@ -14,3 +14,12 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 application = get_wsgi_application()
+
+
+from .local_settings import *
+
+if DEBUG == False:
+    import sys
+    sys.path.append('/var/www/environments/my-first-blog')
+    sys.path.append('/var/www/environments/my-first-blog/mysite')
+    sys.path.append('/usr/lib/python3.7/site-packages')
