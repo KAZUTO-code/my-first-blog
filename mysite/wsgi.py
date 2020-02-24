@@ -11,9 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from .local_settings import *
-
-if DEBUG == False:
+try:
+    from .local_wsgi import *
+except ImportError:
     import sys
     sys.path.append('/var/www/environments/my-first-blog')
     sys.path.append('/var/www/environments/my-first-blog/mysite')

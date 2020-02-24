@@ -8,3 +8,4 @@ db.sqlite3
 .DS_Store1
 /media
 /mysite/local_settings.py
+/mysite/local_wsgi.py
