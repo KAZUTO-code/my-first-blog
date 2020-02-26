@@ -11,21 +11,22 @@
 - 管理ユーザログイン・ログアウト機能
 - 画像ファイルアップロード機能
 - ページネーション機能
-
-## 構築環境
-- WebFrameWork -> Django
-- DB -> SQLite
-- Server, Domain -> pythonanywhere.com
-## サイトのURL
-http://kazuhira1073.pythonanywhere.com/blog
-
-## 今後の予定
-以下の内容を実装予定
 - HTTPS化
 - DBテーブルのリレーション管理
 - DBトランザクションの制御機能
+- サイトAWSに移行
+- ELB, RDS, EC2, Route 53の活用
+
+## 構築環境
+- WebFrameWork -> Django
+- DB -> MySQL
+- Server -> EC2
+## サイトのURL
+- http://kazuhira1073.pythonanywhere.com/blog (移転しました)
+- https://blog.kazuhira-portfolio.com/blog
+## 今後の予定
+以下の内容を実装予定
 - 単体テスト機能
 - 統合テスト機能
-- サイトをHerokuまたはAWSに移行
-- Docker
+- Dockerの活用
 - CI/CD
