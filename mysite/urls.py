@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.conf import settings
 from django.views.static import serve
+from django.http import HttpResponse
 
 
 urlpatterns = [
+    path('', lambda r: HttpResponse()),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
