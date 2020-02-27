@@ -55,3 +55,26 @@ h1, h2, h3, h4 {
     color: #D5CCC1;
     margin: 10px 10px 10px 10px;
 }
+
+.content.container {
+    margin: auto;
+    width: 80%;
+}
+
+.col-md-8 {
+    margin: auto 0;
+}
+
+.pagination {
+    margin: auto;
+    width: auto;
+}
+
+.post-title, .date, .comment {
+    margin: auto;
+    text-align: left;
+}
+
+.post-title {
+    padding-bottom: 10px;
+}
