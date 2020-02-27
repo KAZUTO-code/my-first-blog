@@ -4,7 +4,7 @@
     <div class="post">
         {% if post.published_date %}
           <div class="date">
-              {{ post.published_date }}
+              {{ post.published_date|date:"Y/n/j" }}
           </div>
         {% else %}
           <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
@@ -14,7 +14,7 @@
            <a class="btn icon" href="{% url 'post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
            <a class="btn icon" href="{% url 'post_remove' pk=post.pk %}"><i class="fas fa-trash-alt"></i></a>
         {% endif %}
-        <h2>{{ post.title }}</h2>
+        <h2 class="post-title">{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr|urlize }}</p>
         {% if post.image %}
           <div class="image">
@@ -22,10 +22,9 @@
           </div>
         {% endif %}
     </div>
+    <h4>Comments</h4>
     <hr>
-    <a class="btn btn-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
-    <tt class="publish-comments">公開コメント</tt>
-    <hr>
+    <a class="btn btn-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">コメントする</a>
     {% for comment in post.comments.all %}
         <div class="comment">
             <div class="date">
